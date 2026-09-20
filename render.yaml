@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: article-detector
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: TYPESAFE_API_KEY
+        sync: false # 这里的 false 意味着不会把你的 Key 写在文件里，而是要在网页后台手动填
